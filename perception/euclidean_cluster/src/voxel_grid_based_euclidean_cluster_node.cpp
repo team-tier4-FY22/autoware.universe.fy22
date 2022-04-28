@@ -50,7 +50,7 @@ void VoxelGridBasedEuclideanClusterNode::onPointCloud(
   // convert ros to pcl
   pcl::PointCloud<pcl::PointXYZ>::Ptr raw_pointcloud_ptr(new pcl::PointCloud<pcl::PointXYZ>);
   pcl::fromROSMsg(*input_msg, *raw_pointcloud_ptr);
-  RCLCPP_INFO_STREAM(rclcpp::get_logger("euclidean"), std::to_string(input_msg->data[0]).c_str());
+  //RCLCPP_INFO_STREAM(rclcpp::get_logger("euclidean"), std::to_string(input_msg->data[0]).c_str());
 
   // clustering
   std::vector<pcl::PointCloud<pcl::PointXYZ>> clusters;
@@ -58,7 +58,11 @@ void VoxelGridBasedEuclideanClusterNode::onPointCloud(
 
   // build output msg
   tier4_perception_msgs::msg::DetectedObjectsWithFeature output;
+  
   convertPointCloudClusters2Msg(input_msg->header, clusters, output);
+  //RCLCPP_INFO_STREAM(rclcpp::get_logger("euclidean"), "aaaaa");
+  //RCLCPP_INFO_STREAM(rclcpp::get_logger("euclidean"), std::to_string(output.feature_objects[0].feature.cluster.data[0]).c_str());
+
   cluster_pub_->publish(output);
 
   // build debug msg
