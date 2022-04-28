@@ -50,6 +50,7 @@ void VoxelGridBasedEuclideanClusterNode::onPointCloud(
   // convert ros to pcl
   pcl::PointCloud<pcl::PointXYZ>::Ptr raw_pointcloud_ptr(new pcl::PointCloud<pcl::PointXYZ>);
   pcl::fromROSMsg(*input_msg, *raw_pointcloud_ptr);
+  RCLCPP_INFO_STREAM(rclcpp::get_logger("euclidean"), std::to_string(input_msg->data[0]).c_str());
 
   // clustering
   std::vector<pcl::PointCloud<pcl::PointXYZ>> clusters;
