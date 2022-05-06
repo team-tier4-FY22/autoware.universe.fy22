@@ -14,7 +14,7 @@
       is_showing_calculation_time: false
 
       # other
-      enable_avoidance: false # enable avoidance function
+      enable_avoidance: true # enable avoidance function
       enable_pre_smoothing: true # enable EB
       skip_optimization: false # skip MPT and EB
       reset_prev_optimization: false

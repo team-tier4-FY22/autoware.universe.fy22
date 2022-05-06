@@ -55,7 +55,7 @@
         unknown: false
         bicycle: false
         motorcycle: false
-        pedestrian: false
+        pedestrian: true
 
       # ---------- advanced parameters ----------
       avoidance_execution_lateral_threshold: 0.499
