@@ -3,9 +3,9 @@
     option:
       # publish
       is_publishing_debug_visualization_marker: true
-      is_publishing_clearance_map: false # publish clearance map as nav_msgs::OccupancyGrid
-      is_publishing_object_clearance_map: false # publish clearance map as nav_msgs::OccupancyGrid
-      is_publishing_area_with_objects: false # publish occupancy map as nav_msgs::OccupancyGrid
+      is_publishing_clearance_map: true # publish clearance map as nav_msgs::OccupancyGrid
+      is_publishing_object_clearance_map: true # publish clearance map as nav_msgs::OccupancyGrid
+      is_publishing_area_with_objects: true # publish occupancy map as nav_msgs::OccupancyGrid
 
       is_stopping_if_outside_drivable_area: true # stop if the ego's footprint will be outside the drivable area
 
@@ -14,7 +14,7 @@
       is_showing_calculation_time: false
 
       # other
-      enable_avoidance: false # enable avoidance function
+      enable_avoidance: true # enable avoidance function
       enable_pre_smoothing: true # enable EB
       skip_optimization: false # skip MPT and EB
       reset_prev_optimization: false
@@ -24,12 +24,12 @@
       num_sampling_points: 100 # number of optimizing points
 
       # trajectory total/fixing length
-      trajectory_length: 300.0 # total trajectory length[m]
+      trajectory_length: 5.0 # total trajectory length[m]
 
       forward_fixing_min_distance: 1.0 # number of fixing points around ego vehicle [m]
       forward_fixing_min_time: 0.5 # forward fixing time with current velocity [s]
 
-      backward_fixing_distance: 5.0 # backward fixing length from base_link [m]
+      backward_fixing_distance: 1.0 # backward fixing length from base_link [m]
       delta_arc_length_for_trajectory: 0.1 # delta arc length for trajectory [m]
 
       delta_dist_threshold_for_closest_point: 3.0 # delta dist thres for closest point [m]
@@ -68,7 +68,7 @@
         delta_arc_length_for_mpt_points: 0.5 # delta arc length when generating mpt [m]
 
       kinematics:
-        max_steer_deg: 40.0 # max steering angle [deg]
+        max_steer_deg: 80.0 # max steering angle [deg]
 
         # If this parameter is commented out, the parameter is set as below by default.
         # The logic could be `optimization_center_offset = vehicle_info.wheel_base * 0.8`
@@ -137,12 +137,12 @@
           lat_error_weight: 100.0 # weight for lateral error
           yaw_error_weight: 0.0 # weight for yaw error
           yaw_error_rate_weight: 0.0 # weight for yaw error rate
-          steer_input_weight: 10.0 # weight for steering input
-          steer_rate_weight: 10.0 # weight for steering rate
+          steer_input_weight: 5.0 # weight for steering input
+          steer_rate_weight: 3.0 # weight for steering rate
 
           obstacle_avoid_lat_error_weight: 3.0 # weight for lateral error
-          obstacle_avoid_yaw_error_weight: 0.0 # weight for yaw error
-          obstacle_avoid_steer_input_weight: 1000.0 # weight for yaw error
+          obstacle_avoid_yaw_error_weight: 3.0 # weight for yaw error
+          obstacle_avoid_steer_input_weight: 50.0 # weight for yaw error
           near_objects_length: 30.0 # weight for yaw error
 
           terminal_lat_error_weight: 100.0 # weight for lateral error at terminal point
