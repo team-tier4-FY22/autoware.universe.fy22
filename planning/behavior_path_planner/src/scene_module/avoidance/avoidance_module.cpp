@@ -1860,7 +1860,8 @@ void AvoidanceModule::generateExtendedDrivableArea(ShiftedPath * shifted_path) c
     }
 
     // declare strategies for boost::geometry::buffer to add offset to object
-    const double buffer_distance = 1.5;  // TODO(murooka) magic number: 1.5m away from objects
+    // TODO(Sobue) set this according to object type
+    const double buffer_distance = 0.3;
     boost::geometry::strategy::buffer::distance_symmetric<double> distance_strategy(
       buffer_distance);
     boost::geometry::strategy::buffer::join_miter join_strategy;
