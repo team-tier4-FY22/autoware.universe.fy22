@@ -1847,6 +1847,7 @@ void AvoidanceModule::generateExtendedDrivableArea(ShiftedPath * shifted_path) c
   {
     // convert object dynamic array to multi polygon 2d
     boost::geometry::model::multi_polygon<tier4_autoware_utils::Polygon2d> obj_multipolygon;
+    std::vector<std::uint8_t> obj_types;
     for (const auto & object_data : avoidance_data_.objects) {
       const auto & object = object_data.object;
 
@@ -1857,10 +1858,12 @@ void AvoidanceModule::generateExtendedDrivableArea(ShiftedPath * shifted_path) c
 
       boost::geometry::correct(obj_polygon);
       obj_multipolygon.push_back(obj_polygon);
+      obj_types.push_back(util::getHighestProbLabel(object.classification));
     }
 
     // declare strategies for boost::geometry::buffer to add offset to object
     // TODO(Sobue) set this according to object type
+    //
     const double buffer_distance = 0.3;
     boost::geometry::strategy::buffer::distance_symmetric<double> distance_strategy(
       buffer_distance);
