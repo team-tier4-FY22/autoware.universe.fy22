@@ -266,20 +266,7 @@ AvoidanceParameters BehaviorPathPlannerNode::getAvoidanceParam()
   p.avoid_motorcycle = dp("target_object.motorcycle", false);
   p.avoid_pedestrian = dp("target_object.pedestrian", false);
 
-  const double buffer_dist_from_object_default = dp("buffer_dist_from_object.default", 1.5);
-  p.buffer_dist_from_car = dp("buffer_dist_from_object.car", buffer_dist_from_object_default);
-  p.buffer_dist_from_truck = dp("buffer_dist_from_object.truck", buffer_dist_from_object_default);
-  p.buffer_dist_from_bus = dp("buffer_dist_from_object.bus", buffer_dist_from_object_default);
-  p.buffer_dist_from_trailer =
-    dp("buffer_dist_from_object.trailer", buffer_dist_from_object_default);
-  p.buffer_dist_from_unknown =
-    dp("buffer_dist_from_object.unknown", buffer_dist_from_object_default);
-  p.buffer_dist_from_bicycle =
-    dp("buffer_dist_from_object.bicycle", buffer_dist_from_object_default);
-  p.buffer_dist_from_motorcycle =
-    dp("buffer_dist_from_object.motorcycle", buffer_dist_from_object_default);
-  p.buffer_dist_from_pedestrian =
-    dp("buffer_dist_from_object.pedestrian", buffer_dist_from_object_default);
+  p.buffer_dist_from_object = dp("buffer_dist_from_object", 1.5);
 
   p.avoidance_execution_lateral_threshold = dp("avoidance_execution_lateral_threshold", 0.499);
 

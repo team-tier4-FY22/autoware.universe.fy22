@@ -158,14 +158,7 @@ struct AvoidanceParameters
   bool avoid_motorcycle{false};  // avoidance is performed for type object motorbike
   bool avoid_pedestrian{false};  // avoidance is performed for type object pedestrian
 
-  double buffer_dist_from_car;
-  double buffer_dist_from_truck;
-  double buffer_dist_from_bus;
-  double buffer_dist_from_trailer;
-  double buffer_dist_from_unknown;
-  double buffer_dist_from_bicycle;
-  double buffer_dist_from_motorcycle;
-  double buffer_dist_from_pedestrian;
+  double buffer_dist_from_object;
 
   // debug
   bool publish_debug_marker = false;
