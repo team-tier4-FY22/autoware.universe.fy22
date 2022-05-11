@@ -60,7 +60,10 @@
 #endif
 
 #include <QColor>
+// https://github.com/autowarefoundation/autoware.universe/pull/808/
+#include <QCursor>
 #include <QImage>
+#include <QVariant>
 #include <rclcpp/rclcpp.hpp>
 #include <rviz_rendering/render_system.hpp>
 
